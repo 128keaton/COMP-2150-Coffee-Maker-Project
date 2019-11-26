@@ -5,7 +5,7 @@ import com.kbrleson.coffeemaker.components.heaters.PlateHeater;
 import com.kbrleson.coffeemaker.components.indicators.PlateIndicator;
 
 public class Plate implements GenericLogicalSensor {
-    private boolean carafeAvailable = true;
+    private boolean carafeAvailable = false;
     private PlateHeater heater;
     private PlateIndicator indicator;
 

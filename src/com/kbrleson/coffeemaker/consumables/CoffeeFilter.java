@@ -4,6 +4,10 @@ public class CoffeeFilter implements Consumable {
     private boolean hasBeenUsed = false;
     private CoffeeGrinds coffeeGrinds;
 
+    public CoffeeFilter() {
+        System.out.println("Adding coffee filter to coffee maker");
+    }
+
     @Override
     public boolean isConsumed() {
         boolean totallyConsumed = this.hasBeenUsed;
@@ -26,6 +30,7 @@ public class CoffeeFilter implements Consumable {
 
     public void fill() {
         this.coffeeGrinds = new CoffeeGrinds();
+        System.out.println("Adding coffee grinds to coffee filter");
     }
 
     public boolean isFilled() {

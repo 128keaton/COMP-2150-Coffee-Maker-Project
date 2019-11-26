@@ -10,14 +10,18 @@ public class PlateIndicator implements GenericIndicator {
 
     @Override
     public void setOn() {
-        this.plateHeaterActive = true;
-        System.out.println("Plate Heater Light: On");
+       if (!this.plateHeaterActive) {
+           this.plateHeaterActive = true;
+           System.out.println("Plate Heater Light: On");
+       }
     }
 
     @Override
     public void setOff() {
-        this.plateHeaterActive = false;
-        System.out.println("Plate Heater Light: Off");
+      if (this.plateHeaterActive) {
+          this.plateHeaterActive = false;
+          System.out.println("Plate Heater Light: Off");
+      }
     }
 
 }

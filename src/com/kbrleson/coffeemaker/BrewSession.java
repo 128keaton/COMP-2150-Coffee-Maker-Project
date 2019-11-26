@@ -8,7 +8,8 @@ import com.kbrleson.coffeemaker.components.sensors.Plate;
 
 class BrewSession {
     private BrewStatus status = BrewStatus.Waiting;
-    private double progress = 0.0;
+    private Double progress = 0.0;
+    private Double progressHalt = null;
     private final Boiler boiler;
     private Carafe carafe;
     private Plate plate;
@@ -44,22 +45,39 @@ class BrewSession {
     void setBrewing() {
         this.status = BrewStatus.Brewing;
         this.printStatus();
+        double startProgress = this.progress != 0 ? this.progress : 0.0;
+        double maxProgress = this.progressHalt != null ? this.progressHalt : 100.0;
 
-        for (double progress = 10.0; progress <= 100; progress += 10.0) {
-            double liquid = boiler.takeWater(10.0);
-            updateProgress(progress);
-            carafe.addBrewedCoffee(liquid);
-            plate.carafeWasUpdated(carafe);
+        for (double currentProgress = startProgress; currentProgress <= maxProgress; currentProgress += 1.0) {
+            double coffee = boiler.takeWater(1.0);
+
+            this.carafe.addBrewedCoffee(coffee);
+            this.plate.carafeWasUpdated(carafe);
+
+            this.updateProgress(currentProgress);
+
+            if (maxProgress < 100.0 && currentProgress == maxProgress) {
+                System.out.println("Brew Paused at: " + currentProgress + "%");
+            }
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         }
     }
 
+    void setInterruptAt(Double progressHalt) {
+        if (progressHalt != null && progressHalt > 0.0) {
+            this.progressHalt = progressHalt;
+        } else {
+            this.progressHalt = null;
+        }
+    }
+
     void setPaused() {
+        this.progressHalt = null;
         this.status = BrewStatus.Paused;
         this.printStatus();
     }
@@ -85,6 +103,8 @@ class BrewSession {
             this.setFinished();
         }
 
-        System.out.println("Brew Progress: " + this.progress + "%");
+        if (progress > 0 && progress < 100.0 && progress % 10 == 0) {
+            System.out.println("Brew Progress: " + this.progress + "%");
+        }
     }
 }

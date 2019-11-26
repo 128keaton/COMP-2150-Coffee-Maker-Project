@@ -30,7 +30,9 @@ public class Carafe implements LiquidContainer {
     }
 
     public void addBrewedCoffee(double amount) {
-        this.percentageFull += amount;
+        if (this.percentageFull < 100.0) {
+            this.percentageFull += amount;
+        }
     }
 
     /**

@@ -5,12 +5,18 @@ public class PlateHeater implements GenericHeater {
 
     @Override
     public void setHeating(boolean heating) {
-        this.isHeating = heating;
-        System.out.println("Plate Heater: " + (heating ? "On" : "Off"));
+        if (this.isHeating != heating) {
+            this.isHeating = heating;
+            this.printStatus();
+        }
     }
 
     @Override
     public boolean isHeating() {
         return this.isHeating;
+    }
+
+    private void printStatus() {
+        System.out.println("Plate Heater: " + (this.isHeating ? "On" : "Off"));
     }
 }

@@ -22,13 +22,10 @@ public class CoffeeMaker {
 
     public CoffeeMaker() {
         this.plate = new Plate();
-        this.carafe = new Carafe();
         this.boiler = new Boiler();
         this.sprayControlValve = new SprayControlValve();
         this.reliefValve = new ReliefValve();
         this.brewIndicatorLight = new BrewIndicatorLight();
-
-        this.plate.replaceCarafe(this.carafe);
     }
 
     public void addCoffeeFilter() {
@@ -46,8 +43,10 @@ public class CoffeeMaker {
     public void resumeBrew() {
         if (canResumeBrew()) {
             this.printAction("Resuming Brew");
-            this.brewSession.setBrewing();
             this.brewIndicatorLight.setOn();
+            this.reliefValve.closeValve();
+            this.sprayControlValve.openValve();
+            this.brewSession.setBrewing();
         }
     }
 
@@ -59,6 +58,19 @@ public class CoffeeMaker {
             this.brewIndicatorLight.setOff();
             this.reliefValve.openValve();
             this.sprayControlValve.closeValve();
+        } else if (this.brewSession != null && this.brewSession.isPaused()) {
+            // This handles a programmatic brew interrupt.
+            if (this.brewIndicatorLight.isIndicatorLit()) {
+                this.brewIndicatorLight.setOff();
+            }
+
+            if (!this.reliefValve.isValveOpen()) {
+                this.reliefValve.openValve();
+            }
+
+            if (this.sprayControlValve.isValveOpen()) {
+                this.sprayControlValve.closeValve();
+            }
         } else {
             System.out.println("The coffee maker currently isn't brewing coffee");
         }
@@ -66,14 +78,23 @@ public class CoffeeMaker {
 
     public void brew() {
         if (canBrew()) {
+            if (this.brewSession == null) {
+                this.brewSession = new BrewSession(boiler, carafe, plate, coffeeFilter);
+            }
+
             this.printAction("Starting Brew");
-            this.brewSession = new BrewSession(boiler, carafe, plate, coffeeFilter);
             this.carafe.setBrewStrength(this.sprayControlValve.getStrength());
             this.brewIndicatorLight.setOn();
             this.boiler.startBoiling();
             this.sprayControlValve.openValve();
             this.brewSession.setBrewing();
         }
+    }
+
+    public void brewUntil(double percentage) {
+        this.brewSession = new BrewSession(boiler, carafe, plate, coffeeFilter);
+        this.brewSession.setInterruptAt(percentage);
+        this.brew();
     }
 
     public void fillBoiler() {
@@ -84,43 +105,51 @@ public class CoffeeMaker {
         }
     }
 
-    public void fill(CoffeeCup cup) {
-        if (!this.carafe.isEmpty()) {
+    public void fillCoffeeCup(CoffeeCup cup) {
+        if (this.carafe != null && !this.carafe.isEmpty()) {
             this.removeCarafe();
             this.printAction("Filling Cup");
             cup.fillFrom(this.carafe);
-            this.replaceCarafe();
+        } else if (this.carafe == null) {
+            System.out.println("There is no carafe in the coffee maker");
         } else {
             System.out.println("The coffee maker's carafe contains no coffee");
         }
     }
 
     public void removeCarafe() {
-        this.printAction("Removing Carafe");
-        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
+       if (this.plate.isTripped()) {
+           this.printAction("Removing Carafe");
+           System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
 
-        this.plate.removeCarafe();
-        if (this.brewSession != null && this.brewSession.isBrewing()) {
-            this.pauseBrew();
-        }
+           this.plate.removeCarafe();
+           if (this.brewSession != null && (this.brewSession.isBrewing() || this.brewSession.isPaused())) {
+               this.pauseBrew();
+           }
+       }
     }
 
-    public void replaceCarafe() {
-        this.printAction("Replacing Carafe");
+    public void addOrReplaceCarafe() {
+        if (this.carafe == null) {
+            this.printAction("Adding Carafe");
+            this.carafe = new Carafe();
+        } else {
+            this.printAction("Replacing Carafe");
+        }
 
         this.plate.replaceCarafe(this.carafe);
+        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
+
         if (this.brewSession != null && this.brewSession.isPaused()) {
             this.resumeBrew();
         }
-
-        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
     }
 
     public void emptyCarafe() {
         this.removeCarafe();
         this.printAction("Emptying Carafe");
         this.carafe.setEmpty();
-        this.replaceCarafe();
+        this.addOrReplaceCarafe();
     }
 
     public void clean() {

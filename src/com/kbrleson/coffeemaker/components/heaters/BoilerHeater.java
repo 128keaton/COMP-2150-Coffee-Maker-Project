@@ -5,8 +5,10 @@ public class BoilerHeater implements GenericHeater {
 
     @Override
     public void setHeating(boolean heating) {
-        this.isHeating = heating;
-        this.printStatus();
+        if (this.isHeating != heating) {
+            this.isHeating = heating;
+            this.printStatus();
+        }
     }
 
     @Override

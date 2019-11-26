@@ -4,7 +4,7 @@ import com.kbrleson.coffeemaker.enums.BrewStrength;
 
 public class SprayControlValve implements GenericValve {
     private boolean isSpraying = false;
-    private BrewStrength strength = BrewStrength.Light;
+    private BrewStrength strength = BrewStrength.Medium;
 
     public void setStrength(BrewStrength strength) {
         this.strength = strength;
