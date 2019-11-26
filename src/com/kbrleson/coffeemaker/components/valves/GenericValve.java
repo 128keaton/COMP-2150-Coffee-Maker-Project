@@ -1,7 +1,7 @@
 package com.kbrleson.coffeemaker.components.valves;
 
 public interface GenericValve {
-    public void openValve();
-    public void closeValve();
-    public boolean isValveOpen();
+    void openValve();
+    void closeValve();
+    boolean isValveOpen();
 }

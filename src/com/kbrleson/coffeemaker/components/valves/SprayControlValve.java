@@ -6,13 +6,6 @@ public class SprayControlValve implements GenericValve {
     private boolean isSpraying = false;
     private BrewStrength strength = BrewStrength.Light;
 
-    public SprayControlValve(BrewStrength strength) {
-        this.strength = strength;
-    }
-
-    public SprayControlValve() {
-    }
-
     public void setStrength(BrewStrength strength) {
         this.strength = strength;
         System.out.println("Spray Valve Strength: " + this.strength);

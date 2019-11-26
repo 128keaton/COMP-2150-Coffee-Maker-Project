@@ -6,7 +6,7 @@ import com.kbrleson.coffeemaker.enums.BrewStatus;
 import com.kbrleson.coffeemaker.components.containers.Carafe;
 import com.kbrleson.coffeemaker.components.sensors.Plate;
 
-public class BrewSession {
+class BrewSession {
     private BrewStatus status = BrewStatus.Waiting;
     private double progress = 0.0;
     private final Boiler boiler;
@@ -14,34 +14,34 @@ public class BrewSession {
     private Plate plate;
     private CoffeeFilter coffeeFilter;
 
-    public BrewSession(Boiler boiler, Carafe carafe, Plate plate, CoffeeFilter coffeeFilter) {
+    BrewSession(Boiler boiler, Carafe carafe, Plate plate, CoffeeFilter coffeeFilter) {
         this.boiler = boiler;
         this.carafe = carafe;
         this.plate = plate;
         this.coffeeFilter = coffeeFilter;
     }
 
-    public BrewStatus getStatus() {
+    BrewStatus getStatus() {
         return status;
     }
 
-    public boolean isPaused() {
+    boolean isPaused() {
         return this.status == BrewStatus.Paused;
     }
 
-    public boolean isFinished() {
+    boolean isFinished() {
         return this.status == BrewStatus.Finished;
     }
 
-    public boolean isBrewing() {
+    boolean isBrewing() {
         return this.status == BrewStatus.Brewing;
     }
 
-    public boolean isWaiting() {
+    boolean isWaiting() {
         return this.status == BrewStatus.Waiting;
     }
 
-    public void setBrewing() {
+    void setBrewing() {
         this.status = BrewStatus.Brewing;
         this.printStatus();
 
@@ -59,12 +59,12 @@ public class BrewSession {
         }
     }
 
-    public void setPaused() {
+    void setPaused() {
         this.status = BrewStatus.Paused;
         this.printStatus();
     }
 
-    public void setFinished() {
+    private void setFinished() {
         this.status = BrewStatus.Finished;
         this.printStatus();
 
@@ -77,7 +77,7 @@ public class BrewSession {
         System.out.println("Brew Status: " + this.status);
     }
 
-    public void updateProgress(double progress) {
+    private void updateProgress(double progress) {
         this.progress = progress;
 
         if (this.progress >= 100.0) {
