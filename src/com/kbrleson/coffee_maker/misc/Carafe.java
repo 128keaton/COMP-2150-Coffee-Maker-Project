@@ -1,4 +1,4 @@
-package com.kbrleson.coffee_maker;
+package com.kbrleson.coffee_maker.misc;
 
 import com.kbrleson.coffee_maker.interfaces.FluidSensorInterface;
 
@@ -7,7 +7,7 @@ public class Carafe implements FluidSensorInterface {
 
     @Override
     public boolean isFull() {
-        return this.percentageFull >= 99.0;
+        return this.percentageFull >= 90.0;
     }
 
     @Override
@@ -18,5 +18,9 @@ public class Carafe implements FluidSensorInterface {
     @Override
     public double percentageFull() {
         return this.percentageFull;
+    }
+
+    public void addBrewedCoffee(double amount) {
+        this.percentageFull += amount;
     }
 }

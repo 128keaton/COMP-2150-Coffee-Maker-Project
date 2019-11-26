@@ -5,33 +5,32 @@ import com.kbrleson.coffee_maker.interfaces.FluidSensorInterface;
 public class Boiler implements FluidSensorInterface {
     private double percentageFull = 0.0;
     private BoilerHeater heater;
-    private BoilerSensor sensor;
 
     public Boiler() {
         this.heater = new BoilerHeater();
-        this.sensor = new BoilerSensor();
     }
 
     public void startBoiling() {
         if (this.heater.isHeating()) {
-            System.out.println("Boiler Heating Element: ON");
             return;
         }
 
         this.heater.setHeating(true);
-        System.out.println("Boiler Heating Element: ON");
-    }
-
-    public void stopBoiling() {
-        this.heater.setHeating(false);
-        System.out.println("Boiler Heating Element: OFF");
     }
 
     public void fillWater() {
-        for (double i = 0.0; i <= 100.0; i++) {
-            this.percentageFull += i;
-            System.out.println("Adding water to boiler. " + this.percentageFull + "/100.0 full");
+       this.percentageFull = 100.0;
+       System.out.println("Boiler: FULL");
+    }
+
+    public double takeWater(double amountToTake) {
+        this.percentageFull -= amountToTake;
+
+        if (this.isEmpty()) {
+            this.heater.setHeating(false);
         }
+
+        return amountToTake;
     }
 
     @Override
