@@ -1,8 +1,9 @@
 package com.kbrleson.coffee_maker;
 
 import com.kbrleson.coffee_maker.boiler.Boiler;
+import com.kbrleson.coffee_maker.containers.CoffeeCup;
 import com.kbrleson.coffee_maker.misc.BrewIndicatorLight;
-import com.kbrleson.coffee_maker.misc.Carafe;
+import com.kbrleson.coffee_maker.containers.Carafe;
 import com.kbrleson.coffee_maker.misc.ReliefValve;
 import com.kbrleson.coffee_maker.misc.SprayControl;
 import com.kbrleson.coffee_maker.plate.Plate;
@@ -73,11 +74,25 @@ public class CoffeeMaker {
         }
     }
 
+    public void fill(CoffeeCup cup) {
+        if (!this.carafe.isEmpty()) {
+            this.removeCarafe();
+
+            System.out.println("\n============================================");
+            System.out.println("               Filling Cup");
+            System.out.println("============================================");
+            cup.fillFrom(this.carafe);
+            this.replaceCarafe();
+        } else {
+            System.out.println("The coffee maker's carafe contains no coffee");
+        }
+    }
+
     public void removeCarafe() {
         System.out.println("\n============================================");
         System.out.println("               Removing Carafe");
         System.out.println("============================================");
-        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "/100");
+        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
 
         this.plate.removeCarafe();
         if (this.brewSession != null && this.brewSession.isBrewing()) {
@@ -95,7 +110,7 @@ public class CoffeeMaker {
             this.resumeBrew();
         }
 
-        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "/100");
+        System.out.println("Carafe Level: " + this.carafe.percentageFull() + "%");
     }
 
     private boolean canResumeBrew() {

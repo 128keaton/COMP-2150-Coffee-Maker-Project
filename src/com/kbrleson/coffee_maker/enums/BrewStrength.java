@@ -1,5 +1,5 @@
 package com.kbrleson.coffee_maker.enums;
 
-public enum SprayStrength {
+public enum BrewStrength {
     Strong, Medium, Light
 }

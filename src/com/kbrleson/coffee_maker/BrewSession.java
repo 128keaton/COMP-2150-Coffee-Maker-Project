@@ -2,7 +2,7 @@ package com.kbrleson.coffee_maker;
 
 import com.kbrleson.coffee_maker.boiler.Boiler;
 import com.kbrleson.coffee_maker.enums.BrewStatus;
-import com.kbrleson.coffee_maker.misc.Carafe;
+import com.kbrleson.coffee_maker.containers.Carafe;
 import com.kbrleson.coffee_maker.plate.Plate;
 
 public class BrewSession {
@@ -78,6 +78,6 @@ public class BrewSession {
             this.setFinished();
         }
 
-        System.out.println("Brew Progress: " + this.progress + "/100");
+        System.out.println("Brew Progress: " + this.progress + "%");
     }
 }

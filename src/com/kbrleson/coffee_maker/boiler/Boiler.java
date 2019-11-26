@@ -20,7 +20,7 @@ public class Boiler implements FluidSensorInterface {
 
     public void fillWater() {
        this.percentageFull = 100.0;
-       System.out.println("Boiler: FULL");
+       System.out.println("Boiler: " + this.percentageFull + "% full");
     }
 
     public double takeWater(double amountToTake) {

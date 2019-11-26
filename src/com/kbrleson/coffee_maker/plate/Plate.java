@@ -1,6 +1,6 @@
 package com.kbrleson.coffee_maker.plate;
 
-import com.kbrleson.coffee_maker.misc.Carafe;
+import com.kbrleson.coffee_maker.containers.Carafe;
 import com.kbrleson.coffee_maker.interfaces.LogicalSensorInterface;
 
 public class Plate implements LogicalSensorInterface {

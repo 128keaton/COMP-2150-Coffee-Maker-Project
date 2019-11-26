@@ -1,20 +1,20 @@
 package com.kbrleson.coffee_maker.misc;
 
-import com.kbrleson.coffee_maker.enums.SprayStrength;
+import com.kbrleson.coffee_maker.enums.BrewStrength;
 import com.kbrleson.coffee_maker.interfaces.LogicalValveInterface;
 
 public class SprayControl implements LogicalValveInterface {
     private boolean isSpraying = false;
-    private SprayStrength strength = SprayStrength.Light;
+    private BrewStrength strength = BrewStrength.Light;
 
-    public SprayControl(SprayStrength strength) {
+    public SprayControl(BrewStrength strength) {
         this.strength = strength;
     }
 
     public SprayControl() {
     }
 
-    public void setStrength(SprayStrength strength) {
+    public void setStrength(BrewStrength strength) {
         this.strength = strength;
     }
 
