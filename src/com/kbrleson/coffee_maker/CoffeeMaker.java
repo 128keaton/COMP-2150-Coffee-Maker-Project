@@ -39,6 +39,10 @@ public class CoffeeMaker {
 
     public void pauseBrew() {
         if (this.brewSession != null && this.brewSession.isBrewing()) {
+            System.out.println("\n============================================");
+            System.out.println("               Pausing Brew");
+            System.out.println("============================================");
+
             this.brewSession.setPaused();
             this.brewIndicatorLight.setOff();
             this.reliefValve.openValve();
