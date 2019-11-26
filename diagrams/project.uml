@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1200.75" y="249.0">com.kbrleson.coffeemaker.consumables.CoffeeFilter</node>
+    <node x="0.0" y="467.0">com.kbrleson.coffeemaker.components.indicators.BrewIndicatorLight</node>
+    <node x="1485.25" y="107.0">com.kbrleson.coffeemaker.components.heaters.BoilerHeater</node>
+    <node x="1432.75" y="249.0">com.kbrleson.coffeemaker.components.containers.Boiler</node>
+    <node x="716.5247678018577" y="238.0">com.kbrleson.coffeemaker.components.sensors.Plate</node>
+    <node x="986.6875" y="692.0">com.kbrleson.coffeemaker.CoffeeMaker</node>
+    <node x="1712.0218330753355" y="272.0">com.kbrleson.coffeemaker.components.valves.GenericValve</node>
+    <node x="192.0" y="434.0">com.kbrleson.coffeemaker.components.containers.CoffeeCup</node>
+    <node x="829.75" y="107.0">com.kbrleson.coffeemaker.components.heaters.PlateHeater</node>
+    <node x="1215.75" y="107.0">com.kbrleson.coffeemaker.consumables.CoffeeGrinds</node>
+    <node x="97.59220201238395" y="0.0">com.kbrleson.coffeemaker.components.indicators.GenericIndicator</node>
+    <node x="1765.6875" y="456.0">com.kbrleson.coffeemaker.components.valves.SprayControlValve</node>
+    <node x="198.75" y="272.0">com.kbrleson.coffeemaker.additives.CoffeeAdditive</node>
+    <node x="886.5218330753354" y="412.0">com.kbrleson.coffeemaker.BrewSession</node>
+    <node x="432.3223684210527" y="0.0">com.kbrleson.coffeemaker.components.containers.LiquidContainer</node>
+    <node x="1009.75" y="119.0">com.kbrleson.coffeemaker.components.sensors.GenericLogicalSensor</node>
+    <node x="598.75" y="107.0">com.kbrleson.coffeemaker.components.indicators.PlateIndicator</node>
+    <node x="1601.6875" y="467.0">com.kbrleson.coffeemaker.components.valves.ReliefValve</node>
+    <node x="363.75" y="96.0">com.kbrleson.coffeemaker.components.containers.Carafe</node>
+    <node x="1192.655701754386" y="0.0">com.kbrleson.coffeemaker.components.heaters.GenericHeater</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.containers.Carafe">
+      <point x="-83.82352941176464" y="-102.0" />
+      <point x="1045.3639705882354" y="642.0" />
+      <point x="490.875" y="642.0" />
+      <point x="490.875" y="208.0" />
+      <point x="417.5" y="208.0" />
+      <point x="-53.75" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.containers.Boiler">
+      <point x="67.05882352941171" y="-102.0" />
+      <point x="1196.2463235294117" y="632.0" />
+      <point x="1577.0" y="632.0" />
+      <point x="1577.0" y="392.0" />
+      <point x="1594.625" y="392.0" />
+      <point x="69.375" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.indicators.BrewIndicatorLight">
+      <point x="-134.11764705882342" y="-102.0" />
+      <point x="995.0698529411766" y="672.0" />
+      <point x="43.0" y="672.0" />
+      <point x="-43.0" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.valves.SprayControlValve">
+      <point x="134.11764705882365" y="-102.0" />
+      <point x="1263.3051470588236" y="672.0" />
+      <point x="1904.4375" y="672.0" />
+      <point x="46.25" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.containers.CoffeeCup">
+      <point x="-100.58823529411757" y="-102.0" />
+      <point x="1028.5992647058824" y="652.0" />
+      <point x="330.0" y="652.0" />
+      <point x="0.0" y="58.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.Boiler" target="com.kbrleson.coffeemaker.components.containers.LiquidContainer">
+      <point x="-61.66666666666663" y="-36.0" />
+      <point x="1463.5833333333335" y="218.0" />
+      <point x="1428.0059339525283" y="218.0" />
+      <point x="1428.0059339525283" y="56.0" />
+      <point x="558.1557017543861" y="56.0" />
+      <point x="50.33333333333337" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.sensors.Plate" target="com.kbrleson.coffeemaker.components.sensors.GenericLogicalSensor">
+      <point x="81.25" y="-47.0" />
+      <point x="895.2747678018577" y="218.0" />
+      <point x="1102.75" y="218.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.BrewSession">
+      <point x="0.0" y="-102.0" />
+      <point x="1129.1875" y="592.0" />
+      <point x="1032.0218330753355" y="592.0" />
+      <point x="48.5" y="80.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.valves.ReliefValve">
+      <point x="83.82352941176464" y="-102.0" />
+      <point x="1213.0110294117646" y="642.0" />
+      <point x="1637.6875" y="642.0" />
+      <point x="-36.0" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.indicators.PlateIndicator" target="com.kbrleson.coffeemaker.components.indicators.GenericIndicator">
+      <point x="0.0" y="-25.0" />
+      <point x="704.25" y="66.0" />
+      <point x="216.09220201238395" y="66.0" />
+      <point x="39.5" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.CoffeeCup" target="com.kbrleson.coffeemaker.additives.CoffeeAdditive">
+      <point x="-103.5" y="-58.0" />
+      <point x="226.5" y="392.0" />
+      <point x="234.75" y="392.0" />
+      <point x="-36.0" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.heaters.PlateHeater" target="com.kbrleson.coffeemaker.components.heaters.GenericHeater">
+      <point x="0.0" y="-25.0" />
+      <point x="909.75" y="76.0" />
+      <point x="1226.905701754386" y="76.0" />
+      <point x="-34.25" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.sensors.Plate" target="com.kbrleson.coffeemaker.components.heaters.PlateHeater">
+      <point x="48.75" y="-47.0" />
+      <point x="862.7747678018577" y="208.0" />
+      <point x="949.75" y="208.0" />
+      <point x="40.0" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.CoffeeCup" target="com.kbrleson.coffeemaker.components.containers.LiquidContainer">
+      <point x="34.5" y="-58.0" />
+      <point x="364.5" y="392.0" />
+      <point x="353.25" y="392.0" />
+      <point x="353.25" y="76.0" />
+      <point x="457.48903508771934" y="76.0" />
+      <point x="-50.33333333333337" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.sensors.Plate" target="com.kbrleson.coffeemaker.components.containers.Carafe">
+      <point x="-81.25" y="-47.0" />
+      <point x="732.7747678018577" y="208.0" />
+      <point x="560.8333333333334" y="208.0" />
+      <point x="89.58333333333337" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.components.sensors.Plate">
+      <point x="-33.529411764705856" y="-102.0" />
+      <point x="1095.6580882352941" y="612.0" />
+      <point x="771.1875" y="612.0" />
+      <point x="771.1875" y="392.0" />
+      <point x="789.6497678018577" y="392.0" />
+      <point x="-24.375" y="47.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.BrewSession" target="com.kbrleson.coffeemaker.components.containers.Carafe">
+      <point x="-84.875" y="-80.0" />
+      <point x="898.6468330753354" y="382.0" />
+      <point x="512.875" y="382.0" />
+      <point x="512.875" y="188.0" />
+      <point x="489.16666666666663" y="188.0" />
+      <point x="17.91666666666663" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.consumables.CoffeeFilter" target="com.kbrleson.coffeemaker.consumables.CoffeeGrinds">
+      <point x="53.0" y="-36.0" />
+      <point x="1359.75" y="218.0" />
+      <point x="1352.25" y="218.0" />
+      <point x="45.5" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.Carafe" target="com.kbrleson.coffeemaker.components.containers.LiquidContainer">
+      <point x="0.0" y="-36.0" />
+      <point x="471.25" y="76.0" />
+      <point x="507.8223684210527" y="76.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.valves.SprayControlValve" target="com.kbrleson.coffeemaker.components.valves.GenericValve">
+      <point x="0.0" y="-36.0" />
+      <point x="1858.1875" y="392.0" />
+      <point x="1809.5218330753355" y="392.0" />
+      <point x="32.5" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.Boiler" target="com.kbrleson.coffeemaker.components.heaters.BoilerHeater">
+      <point x="61.66666666666674" y="-36.0" />
+      <point x="1586.9166666666667" y="218.0" />
+      <point x="1605.25" y="218.0" />
+      <point x="40.0" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.CoffeeMaker" target="com.kbrleson.coffeemaker.consumables.CoffeeFilter">
+      <point x="33.529411764705856" y="-102.0" />
+      <point x="1162.7169117647059" y="612.0" />
+      <point x="1409.9880353457172" y="612.0" />
+      <point x="1409.9880353457172" y="372.0" />
+      <point x="1386.25" y="372.0" />
+      <point x="79.5" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.BrewSession" target="com.kbrleson.coffeemaker.components.containers.Boiler">
+      <point x="60.625" y="-80.0" />
+      <point x="1044.1468330753355" y="382.0" />
+      <point x="1455.875" y="382.0" />
+      <point x="-69.375" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.heaters.BoilerHeater" target="com.kbrleson.coffeemaker.components.heaters.GenericHeater">
+      <point x="0.0" y="-25.0" />
+      <point x="1565.25" y="46.0" />
+      <point x="1295.405701754386" y="46.0" />
+      <point x="34.25" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.sensors.Plate" target="com.kbrleson.coffeemaker.components.indicators.PlateIndicator">
+      <point x="-16.25" y="-47.0" />
+      <point x="797.7747678018577" y="188.0" />
+      <point x="757.0" y="188.0" />
+      <point x="52.75" y="25.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.BrewSession" target="com.kbrleson.coffeemaker.consumables.CoffeeFilter">
+      <point x="12.125" y="-80.0" />
+      <point x="995.6468330753354" y="362.0" />
+      <point x="1227.25" y="362.0" />
+      <point x="-79.5" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.containers.CoffeeCup" target="com.kbrleson.coffeemaker.components.containers.Carafe">
+      <point x="103.5" y="-58.0" />
+      <point x="433.5" y="392.0" />
+      <point x="414.3005353457172" y="392.0" />
+      <point x="414.3005353457172" y="218.0" />
+      <point x="381.66666666666663" y="218.0" />
+      <point x="-89.58333333333337" y="36.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.BrewSession" target="com.kbrleson.coffeemaker.components.sensors.Plate">
+      <point x="-36.375" y="-80.0" />
+      <point x="947.1468330753354" y="362.0" />
+      <point x="838.3997678018577" y="362.0" />
+      <point x="24.375" y="47.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.indicators.BrewIndicatorLight" target="com.kbrleson.coffeemaker.components.indicators.GenericIndicator">
+      <point x="0.0" y="-25.0" />
+      <point x="86.0" y="76.0" />
+      <point x="137.09220201238395" y="76.0" />
+      <point x="-39.5" y="13.0" />
+    </edge>
+    <edge source="com.kbrleson.coffeemaker.components.valves.ReliefValve" target="com.kbrleson.coffeemaker.components.valves.GenericValve">
+      <point x="0.0" y="-25.0" />
+      <point x="1673.6875" y="392.0" />
+      <point x="1744.5218330753355" y="392.0" />
+      <point x="-32.5" y="13.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="880.5" y="411.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
