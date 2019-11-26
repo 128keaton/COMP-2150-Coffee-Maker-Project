@@ -29,7 +29,9 @@ public class CoffeeMaker {
 
     public void resumeBrew() {
         if (canResumeBrew()) {
-            System.out.println("Resuming brew");
+            System.out.println("\n============================================");
+            System.out.println("               Resuming Brew");
+            System.out.println("============================================");
             this.brewSession.setBrewing();
             this.brewIndicatorLight.setOn();
         }

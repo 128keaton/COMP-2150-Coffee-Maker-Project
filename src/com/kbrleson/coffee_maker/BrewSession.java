@@ -47,6 +47,12 @@ public class BrewSession {
             updateProgress(progress);
             carafe.addBrewedCoffee(liquid);
             plate.carafeWasUpdated(carafe);
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
